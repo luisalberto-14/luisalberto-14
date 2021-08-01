@@ -1,0 +1,325 @@
+:root{ /*este sirve para crear variables en css */
+         --blanco:#ffffff;
+         --negro:#212121;
+         --verde:#7FE7E8;
+         --azul:#7FC3E8;
+         --azulf:#5061DC;
+         --secundario:#0097A7;
+         --gris:#757575;
+}
+html{
+font-size: 62.5%;
+box-sizing: border-box;/*este sirve para que al aumentar tanto el tamaño, el padding y el border no se 
+sumen se mantengan en la caja*/
+scroll-snap-type: y mandatory; /*este se coloca para que al hacer responsivo tenga un scroll en y*/
+}
+
+.servicios, .navegador_principal,
+.formulario, footer{
+	scroll-snap-align:center;
+	scroll-snap-stop:always;
+}
+*,*:before ,*:after{
+	box-sizing: inherit;
+}
+body{
+	font-size: 16px;
+	background-image: linear-gradient(to top ,#DFD9F3 0%,white 100% ); /*este sirve para hacer degradado el fondo y es 
+	necesario colocar background-image despues se coloca linear-gradient y inicia desde abajo hacia arriba con un color
+	inicinado 0%de abajo y otro color al llegar al 100%*/
+}
+/*si al colocar estos 2 datos en css como son html con ese tamaño de fuente y el body entonces se puede modificar
+con rem y si ocupas rem es mejor ya que asi podras adaptarlo a diferentes dispositivos*/
+/*h1{
+	text-align: center;
+	color:red;
+	font-size: 3.8rem;/* este tipo de rem equivalea 38px si fuera asi 3rem equvale a 30px
+	/*font-size: 2em; este sirve para que agarre el tamaño de la pagina o del contenido*/
+
+
+/*span{ /*aqui se coloca el span a uno solo pero uede afectar a todo el codigo si existe otro span 
+	para ello es mejor colocar su padre 
+	font-size: 2rem; 1rem equivale a 10px
+  /*font-size: 2rem; aqui lo multiplica el tamaño*/
+
+/*h1 span{ aqui ya tiene padre y se coloca solo ese estilo sin afectar todo el codigo 
+	font-size: 2rem; 1rem equivale a 10px
+  font-size: 2rem; aqui lo multiplica el tamaño*/
+
+
+/*.cliente >p{esto quiere decir que va a hacer cambios a todos los hijos p con el padre .cliente
+
+}*/
+.titulo {/*este es para que pueda llamar  ala clase y se coloca en varias partes tanto en h2 y h1 y el id no sepued llamar asi solo una vez
+	*/color: var(--azul);
+	font-family:sans-serif; 
+	text-align: center;
+}
+/*===========especificidad=============*/
+h1.titulo span{/*etse puedes llamar a una clase aun teniendo la etiqueta para ellose coloca la clase junto a la etiqueta para que solo eso lo tome
+	*/color:red;
+
+}
+
+.contenedor{
+	max-width: 110rem;/*este se coloca como si le puiseras pixeles recuerda que esto es por el body y html y se 
+	le coloca max-width por si llega a un limite se extienda a esa medida es nevcesario para que no saque el 
+	scroll*/
+	margin:0 auto;/*este lo primero que muestra es que arriba y abajo es 0 y de los lados es auto pero si uno 
+	coloca margin 0 auto 0 auto va a decir que top=arriba rigth=derecha bottom=abajo y left=izquierda*/
+}
+
+.boton{
+	background:var(--secundario);
+	color: var(--blanco);
+	text-decoration: none;
+	font-size: 15px;
+	padding: 1rem 3rem;
+	text-transform: uppercase;
+	border-radius: 5px;
+	margin-top:1rem; 
+	font-weight: bold;
+	width: 90%;
+	text-align: center;
+}
+@media (min-width: 760px){
+	.boton{
+		width: auto;
+	}
+}
+.nav-bg{
+background-color: var(--secundario);
+}
+.navegador_principal {
+	/*=====esto se coloca para cuando se vea en un navegador desde el dispositivo ya sea celular =====*/
+	display:flex;/*este se coloca para que ya sea flex box osea flexible el contenido y asi ya poder colocar*/
+	/*flex-direction: column;con esto se coloca si son columnas y los coloca de arriba hacia abajo*/
+    flex-direction:column;/*despues del display flex asi ya se coloca esto y se puede ir modificando 
+    al igual que este se coloca por* filas si se coloca el fex-direction column entonces no sirve*/
+    /*align-items: center; este si sirve en este punto al colocar flex-direccion:column*/
+   /* justify-content: space-between;*/
+    align-items: center;
+}
+/*====== utilidades ======*/
+.w-100{
+	width: 100%;
+	border:none;
+}
+
+@media (min-width: 768px){
+	.w-100{
+		width: auto;
+	}
+
+
+.flex{
+	display: flex;
+}
+
+.alinear-derecha{
+	justify-content: flex-end;
+}
+}
+/*======= este es para cuando se vea en una pc para eso es el min-width=========*/
+@media (min-width: 480px){
+	.navegador_principal {
+		flex-direction:row ;/*aqui ya no es necesario pner el display flex ya que lo hereda y s epuede
+		 cambiar*/
+		 justify-content: space-between;
+
+	}
+
+}
+.navegador_principal a{
+	color:var(--blanco);
+	text-decoration: none;
+	 font-size: 20px;
+	 font-weight: bold;
+	 padding: 1rem;/* etse padding va aqui para que abarque el cambio en el hover*/
+}
+
+.navegador_principal a:hover{
+background-color: var(--azulf);
+color:black;
+cursor: pointer;
+}
+
+
+/*==============TIPOS DE CSS =============*/
+/*-------------BEM (bloques, elementos y modificadores)------------------*/
+/*.card{}bloque
+.card__titulo{} elementos
+.card__imagen{}
+.card__boton{}
+modificador
+.card__boton--activo{}*/
+
+/*-------------Utility First------------------*/
+/* .text-center{}
+   .color-100-red{}
+   .bg-blue-200{}*/
+
+/*-------------modulos------------------*/
+/* .card{}
+  .card h2{}
+  .card img{}
+
+meter una imagen como fondo si queremso multiples==========*/
+
+.hero{
+	background-image: url("../img/paisaje.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-repeat: fixed;
+	height: 400px;
+	position: relative;/*el cuadro grande siempre es relativo*/
+	color:white;
+}
+
+.hero .contenido-hero{
+position:absolute;/*este va a ser absolute el hijo*/
+background-color: rgba(0,0,0,.6);/*esta es una forma de colocar el color desvanecido*/
+/*background-color:rgb(0 0 0/70%); esta es otra forma de colocar el color desvancediso*/
+width: 100%;
+height: 100%;
+display: flex;/*este hace que el contendio se coloque todo junto*/
+flex-direction: column;/*esto hara que se coloquen de arriba hacia abajo*/
+align-items: center;/*aqui se centra el contenido de los lsdos*/
+justify-content: center;/*este se coloca para que este centrado de arriba y abajo;*/
+
+}
+
+.contenido-hero h2,
+.contenido-hero p{
+	color:var(--blanco);
+}
+
+.ubicacion{ /*este lo colocamos ya que queriamos que se aliniaran las letras*/
+	display: flex;/*este se coloca para que el icono y las letras se combienen*/
+	align-items: flex-end;/*este es para que alinee el texto abajo y no arriba*/
+} 
+
+.sombra{
+	-webkit-box-shadow: 18px 9px 5px -1px rgba(127,208,232,1);
+-moz-box-shadow: 18px 9px 5px -1px rgba(127,208,232,1);
+box-shadow: 18px 9px 5px -1px rgba(127,208,232,1);
+background: white;
+padding:2rem;
+margin-top:2rem;
+border-radius: 2rem; 										
+}
+@media (min-width: 767px){
+.servicios{
+	display: grid; /*css grid te permite definir la ubicacion y tamaño de los elementos de tu sitio web*/
+	/*====== en flexbox el contenido crece automaticamente, solo se puede tener en rows y columns y en css grid el contenido 
+	se agrupa dentro de un area definida un ejemplo seria con una tabla en html pero es mas flexible y se tiene mas control  ========*/
+
+	grid-template-columns: 300px 300px 300px;/*este es para que lo divida en 3 columnas */
+	column-gap: 10px;/*este sirve para que separe de la tabla como su margen de cada uno
+
+	/*====================cuando utilizar flexbox============*/
+	/* para la alineacion o distribucion de los elementos que estaran dentro de conteedores por ejemplo barra de navegacion
+	*/
+	/*====================cuando utilizar css grid============*/
+	/* para definir el layout de tu sitio web como pueden ser las columnas o los contenedores de elementos como pueden ser 
+	diferentes areas estos son los servicios que colocamos arriba o colocar distintos cuadros */
+}
+}
+.servicio{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.servicio h3{
+ font-weight: 700;
+ color: var(--secundario);
+}
+.servicio p{
+    line-height: 25px;/* este sirve como un interlineado*/
+}
+
+.servicio .iconos{
+	height: 150px;
+	width: 150px;
+	background: yellow;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+
+}
+
+.formulario{
+background-color: gray;
+width: min(600px, 100%);  /*min sirve para utilizar el valor mas pequeño por ejemplo primer parametro 60rem y segundo es 100% 
+entonces toma el 60rem o 600 ya que es mas pequeño y es util ya que te puedes ahorrar unos media queris ya que al estar mas 
+pequeño como en dispositivos moviles logico se hara el 100% menor que los 600px*/
+margin: 0 auto; /* este se coloca para cuando no tiene un flex el formulario y asi se centra*/
+padding: 20px;
+border-radius: 10px;
+}
+
+.formulario fieldset{
+		border:none;
+}
+
+.formulario legend{
+	text-align: center;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: 700;
+	margin-bottom: 20px;
+	color:yellow;
+}
+/*@media(max-width: 768px){ aplicara solo desde el 0px hasta 768px*/
+@media(min-width: 768px){/*aplicara los cambios desde los 768px hacia adelante*/
+	.contenedor-campos{
+	display: grid;/*declaras que es css grid*/
+	grid-template-columns: 50% 50%; /*lo divudes en columnas aqui solo son 2*/
+	grid-gap: 10px;/*le colocas el espacio de las columnas*/
+	grid-template-rows: auto auto 200px;/*este es como la altura heigth solo que las 2 primeras se ajusta y el ultimo se pone alto*/
+}
+.campo:nth-child(3), .campo:nth-child(4){ /*este sirve para que se coloque o tome la clase 3 del campo por si se repite la clase esta es una manera*/
+	grid-column: 1/3; /*este sirve para que abarque toda la columna y no se ponga separado esto es bueno en css grid
+}
+.campo{
+margin-bottom: 20px;/*ste lo que hace es separar de los de abajo */
+}
+}
+h3{
+	text-align: center;
+}
+
+.campo label{
+	text-transform: capitalize;
+	color: white;
+	font-weight: bold;
+	margin-bottom: 10px;
+	display: block; /*el display block lo que hace es colocar arriba el label y abajo los input*/
+
+}
+
+/*.campo input[type="text"]{ este sirve para decir el tipo de input por ejemplo este es text pero puede haber mas como email, 
+	name, tel
+
+
+	background-color: red;
+}
+*/
+
+.campo input,textarea{
+	width: 100%;/*que el input abarca todo el 100%*/
+	border:none;/*se le quita un borde que viene por defecto*/
+	padding: 15px;/*este es para que el input este mas grande para esto es el padding*/
+	border-radius: 5px;
+}
+
+.campo textarea{
+	height: 15rem;
+	resize: none;
+	overflow: auto;
+}
+
+.boton:hover{
+	cursor: pointer;
+}
